@@ -15,7 +15,6 @@ class BlogsController < ApplicationController
 
   # POST /blogs
   def create
-    byebug
     @blog = Blog.new(blog_params)
 
     if @blog.save
@@ -37,6 +36,7 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   def destroy
     @blog.destroy
+    render json: @blog, status: :ok
   end
 
   private
